@@ -24,7 +24,7 @@ function Header({ setTasks, setIsAuthenticated, isAuthenticated, setTaskTitle })
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/v1/task/mytask", { withCredentials: true });
+      const response = await axios.get("$(window.location.origin}/api/v1/task/mytask", { withCredentials: true });
       setAllTasks(response.data.tasks);
       setTasks(response.data.tasks);
     } catch (error) {
@@ -34,7 +34,7 @@ function Header({ setTasks, setIsAuthenticated, isAuthenticated, setTaskTitle })
 
   const handleLogout = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/api/v1/user/logout", { withCredentials: true });
+      const { data } = await axios.get("$(window.location.origin}/api/v1/user/logout", { withCredentials: true });
       toast.success(data.message);
       setIsAuthenticated(false);
     } catch (error) {

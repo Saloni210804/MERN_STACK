@@ -9,7 +9,7 @@ const ViewTaskModal = ({ showViewModal, handleViewModalClose, id }) => {
   useEffect(() => {
     const getSingleTask = async () => {
       await axios
-        .get(`http://localhost:4000/api/v1/task/single/${id}`, {
+        .get(`$(window.location.origin}/api/v1/task/single/${id}`, {
           withCredentials: true,
         })
         .then((res) => {

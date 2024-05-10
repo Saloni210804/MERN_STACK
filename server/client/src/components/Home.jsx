@@ -18,7 +18,7 @@ const Home = ({ isAuthenticated, tasks, setTasks, taskTitle }) => {
 
   const deleteTask = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:4000/api/v1/task/delete/${id}`, { withCredentials: true });
+      const response = await axios.delete(`$(window.location.origin}/api/v1/task/delete/${id}`, { withCredentials: true });
       toast.success(response.data.message);
       setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
     } catch (error) {
